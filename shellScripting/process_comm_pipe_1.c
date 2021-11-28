@@ -13,8 +13,7 @@ int main(){
 	pipe(fd);
 	int status=fork();
 	if(status==0){
-		printf("child is created\n");
-		close(fd[0]);
+		printf("child is created\n"); 
 		write(fd[1],inp,sizeof(inp));
 		
 		sleep(1); 
@@ -24,15 +23,12 @@ int main(){
 	}
 	else if(status>0){
 		printf("parent process\n");
-		int a[2]; 
-		close(fd[1]);
+		int a[2];  
 		read(fd[0],a,sizeof(a)); 
 		int res=1,i=0;
 		for(i=0;i<inp[1];i++){
 			res*=inp[0];
-		}
-		printf("value from parent process: %d\n",res);
-		 
+		} 
 		int *ar=(int *)malloc(1*sizeof(int));
 		ar[0]=res;  
 		write(fd[1],ar,sizeof(ar)); 
