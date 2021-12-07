@@ -14,7 +14,7 @@ int main()
         int fd=open("/home/student/Desktop/pipe/pipe84133",O_WRONLY);
         int b=write(fd,str,strlen(str));
         printf("size:- %d",b);
-        printf("success");
+        // printf("success");
     } 
     else
     {
